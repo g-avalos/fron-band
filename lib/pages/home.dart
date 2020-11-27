@@ -169,7 +169,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   buildIcon() {
-    final socketService = Provider.of<SocketService>(context, listen: false);
+    final socketService = Provider.of<SocketService>(context);
 
     if (socketService.serverStatus == ServerStatus.Online)
       return Icon(Icons.check_circle, color: Colors.green[300]);

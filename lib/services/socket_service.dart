@@ -21,7 +21,12 @@ class SocketService with ChangeNotifier {
     
   void _init() {
     // Dart client
-    this._socket = IO.io('http://localhost:3000/',  <String, dynamic>{
+    // this._socket = IO.io('https://back-band.herokuapp.com/',  <String, dynamic>{
+    //   'transports': ['websocket'],
+    //   'autoConnect': true
+    // });
+
+    this._socket = IO.io('http://192.168.56.1:3000/',  <String, dynamic>{
       'transports': ['websocket'],
       'autoConnect': true
     });
@@ -38,5 +43,7 @@ class SocketService with ChangeNotifier {
     this._socket.on('nuevo-mensaje', (data) {
       print(data);
     });
+
+    socket.connect();
   }
 }
